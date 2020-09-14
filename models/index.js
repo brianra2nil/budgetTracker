@@ -1,4 +1,4 @@
 module.exports = {
-    Item: require('./transaction.js')
+    transaction: require('./transaction.js')
     
   }
