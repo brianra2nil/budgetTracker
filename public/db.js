@@ -18,7 +18,7 @@ request.onerror = event => {
   console.log(event.target.errorCode)
 }
 
-const saveItem = item => {
+const saveRecord = item => {
     const transaction = db.transaction(['pending'], 'readwrite')
     const store = transaction.objectStore('pending')
     store.add(item)
@@ -32,11 +32,11 @@ const checkDatabase = () => {
 
   getAll.onsuccess = () => {
     if (getAll.result.length > 0) {
-      fetch('/api/transactions/bulk', {
+      fetch('/api/transaction/bulk', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-         Authorization: `Bearer ${localStorage.getItem('transaction')}`
+        
         },
         body: JSON.stringify(getAll.result)
       })
