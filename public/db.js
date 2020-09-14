@@ -36,7 +36,7 @@ const checkDatabase = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-         
+         Authorization: `Bearer ${localStorage.getItem('transaction')}`
         },
         body: JSON.stringify(getAll.result)
       })
